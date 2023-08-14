@@ -4,7 +4,7 @@
 
 html {
   font-family: "Poppins", sans-serif;
-  
+
   --color-gray-50: rgb(243, 236, 230);
   --color-gray-100: rgb(207, 201, 195);
   --color-gray-300: rgb(99, 92, 86);
@@ -35,6 +35,46 @@ html {
 
   --border-radius-small: 4px;
   --border-radius-medium: 6px;
-  
+
   --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: var(--color-gray-500);
+  color: var(--color-gray-100);
+  margin: 0;
+}
+
+main {
+  width: 90%;
+  max-width: 50rem;
+  margin: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary-400);
+}
+
+.btn {
+  cursor: pointer;
+  font: inherit;
+  padding: var(--space-2) var(--space-6);
+  background-color: var(--color-primary-500);
+  color: var(--color-primary-500-contrast);
+  border: 1px solid var(--color-primary-500);
+  border-radius: var(--border-radius-small);
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
 }
