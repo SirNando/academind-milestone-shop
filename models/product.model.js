@@ -78,6 +78,11 @@ async replaceImage(newImage) {
     this.image = newImage;
     this.updateImageData();
 }
+
+remove() {
+  const productId = new mongoDb.ObjectId(this.id);
+  return db.getDb().collection("products").deleteOne({_id: productId});
+}
 }
 
 module.exports = Product;
