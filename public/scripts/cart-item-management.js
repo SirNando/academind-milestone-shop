@@ -1,4 +1,7 @@
 const cartItemUpdateFormElements = document.querySelectorAll(".cart-item-management");
+const cartTotalPriceElement = document.getElementById("cart-total-price");
+const cartBadge = document.querySelectorAll(".nav-items .badge");
+
 
 async function updateCartItem(event) {
     event.preventDefault();
@@ -33,6 +36,21 @@ async function updateCartItem(event) {
     }
 
     const responseData = await response.json();
+
+    if(responseData.updatedCartData.updatedItemPrice <= 0) {
+        // This is the list item which contains the product in the list
+        form.parentElement.parentElement.remove();
+    }
+    const cartItemTotalPriceElement = form.parentElement.querySelector(".cart-item-price");
+    cartItemTotalPriceElement.textContent = responseData.updatedCartData.updatedItemPrice.toFixed(2);
+
+    cartTotalPriceElement.textContent = responseData.updatedCartData.newTotalPrice.toFixed(2);
+
+    console.dir(cartBadge);
+    for(badge of cartBadge) {
+        badge.textContent = responseData.updatedCartData.newTotalQuantity;
+    }
+
 }
 
 
